@@ -1,17 +1,24 @@
 <?php
 include '../config.php';
-include '../header.php';
-if(!isset($_SESSION['user_id'])){
-    header("Location: ../login.php");
+
+if(!isset($_GET['id'])){
+    header("Location: list.php");
     exit();
 }
 
-$id = $_GET['id'] ?? null;
-if($id){
-    $stmt = $conn->prepare("DELETE FROM books WHERE id=?");
-    $stmt->execute([$id]);
-}
+$book_id = $_GET['id'];
 
-header("Location: list.php");
-exit();
+// Verificar si el libro tiene préstamos
+$stmt = $conn->prepare("SELECT COUNT(*) FROM loans WHERE book_id = ?");
+$stmt->execute([$book_id]);
+$count = $stmt->fetchColumn();
+
+if($count > 0){
+    echo "<p style='color:red;'>No se puede eliminar este libro, tiene préstamos asociados.</p>";
+} else {
+    $stmt = $conn->prepare("DELETE FROM books WHERE id = ?");
+    $stmt->execute([$book_id]);
+    header("Location: list.php");
+    exit();
+}
 ?>

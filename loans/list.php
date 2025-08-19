@@ -17,7 +17,7 @@ $loans = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <h2>Historial de Préstamos</h2>
-<table>
+<table border="1" cellpadding="5">
     <tr>
         <th>ID</th>
         <th>Libro</th>
@@ -25,6 +25,7 @@ $loans = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <th>Fecha de préstamo</th>
         <th>Devuelto</th>
         <th>Fecha de devolución</th>
+        <th>Acciones</th>
     </tr>
     <?php foreach($loans as $loan): ?>
     <tr>
@@ -34,6 +35,9 @@ $loans = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <td><?= $loan['loan_date']; ?></td>
         <td><?= $loan['returned'] ? 'Sí' : 'No'; ?></td>
         <td><?= $loan['return_date'] ?? '-'; ?></td>
+        <td>
+            <a href="delete_loan.php?id=<?= $loan['id']; ?>" onclick="return confirm('¿Seguro que deseas eliminar este préstamo?');">Eliminar</a>
+        </td>
     </tr>
     <?php endforeach; ?>
 </table>
