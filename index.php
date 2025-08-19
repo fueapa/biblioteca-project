@@ -7,11 +7,11 @@ if(!isset($_SESSION['user_id'])){
     exit();
 }
 
-// Total de préstamos activos
+// prestamos activos
 $stmt = $conn->query("SELECT COUNT(*) as total FROM loans WHERE returned=0");
 $totalLoans = $stmt->fetch(PDO::FETCH_ASSOC)['total'];
 
-// Top 5 libros más prestados
+// top 5 libros
 $stmt = $conn->query("SELECT b.title, COUNT(*) as count 
                       FROM loans l 
                       JOIN books b ON l.book_id=b.id 
@@ -31,7 +31,7 @@ $topBooks = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </div>
 
         <div class="card">
-            <h3>Top 5 Libros Más Prestados</h3>
+            <h3>Top 5 Libros mas Prestados</h3>
             <ul>
                 <?php foreach($topBooks as $book): ?>
                     <li><?php echo $book['title'] . " - " . $book['count']; ?></li>

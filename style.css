@@ -1,4 +1,4 @@
-/* ===================== DASHBOARD ===================== */
+/*  DASHBOARD  */
 .dashboard h2 {
     color: #fff;
     margin-bottom: 30px;
@@ -76,7 +76,7 @@
     box-shadow: 0 8px 25px rgba(0,0,0,0.2);
 }
 
-/* ===================== LOGIN / REGISTRO ===================== */
+
 .login-container {
     display: flex;
     justify-content: center;
@@ -279,7 +279,7 @@
     margin-top: 20px;
 }
 
-/* Tarjeta individual de préstamo */
+/* Tarjeta individual de prestamo */
 .loan-card {
     background: rgba(255, 255, 255, 0.95);
     border-radius: 15px;

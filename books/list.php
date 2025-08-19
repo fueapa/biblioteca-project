@@ -12,7 +12,7 @@ $books = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <h2>Gestión de Libros</h2>
-<a href="add.php">➕ Agregar libro</a>
+<a href="add.php"> Agregar libro</a>
 <table border="1" cellpadding="5" cellspacing="0">
     <tr>
         <th>ID</th>

@@ -24,17 +24,17 @@ email_input = driver.find_element("name", "email")
 password_input = driver.find_element("name", "password")
 login_button = driver.find_element("tag name", "button")
 
-# Función para escribir letra por letra
+# funcion de escribir letra x letra
 def type_like_human(element, text, delay=0.2):
     for char in text:
         element.send_keys(char)
         time.sleep(delay)
 
-# Simular escritura
+# simular escritura
 type_like_human(email_input, "usuario@example.com")
 type_like_human(password_input, "123456")
 
-# Pequeña pausa antes de dar click
+# pausa para dar click
 time.sleep(0.5)
 login_button.click()
 

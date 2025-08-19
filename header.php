@@ -3,8 +3,8 @@ if(session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
-// Definir la ruta absoluta desde localhost
-define('BASE_URL', '/biblioteca/'); // Ajusta según tu carpeta en XAMPP
+
+define('BASE_URL', '/biblioteca/'); 
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -12,7 +12,7 @@ define('BASE_URL', '/biblioteca/'); // Ajusta según tu carpeta en XAMPP
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Biblioteca</title>
-    <link rel="stylesheet" href="<?= BASE_URL; ?>style.css"> <!-- CSS principal -->
+    <link rel="stylesheet" href="<?= BASE_URL; ?>style.css"> 
 </head>
 <body>
 <nav class="navbar">
@@ -30,5 +30,5 @@ define('BASE_URL', '/biblioteca/'); // Ajusta según tu carpeta en XAMPP
     </ul>
 </nav>
 
-<!-- Contenedor principal -->
+
 <div class="main-content">
